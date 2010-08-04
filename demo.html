@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Slider DEMO</title>
+	<style type="text/css">
+	body{
+		margin:30px;
+	}
+	h1{
+		color:#363;
+		font-size:2em;
+	}
+	h2{
+		background-color:#363;
+		color:#fff;
+		margin:5px 0;
+		padding:3px;
+		font-size:1em;
+	}
+	
+	.demoItem{
+		margin:20px 0;
+		width:240px;
+	}
+	.slider{
+		width:240px;
+		height:160px;
+		border:1px solid #ccc;
+		overflow:hidden;
+		margin-bottom:10px;
+	}
+	.slider ul li p{
+		margin:10px;
+	}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="slider.js"></script>
+</head>
+<body>
+<h1>Slider.js DEMO</h1>
+<p><a href="slider.js" target="_blank">download : Slider.js</a></p>
+<div class="demoItem">
+	<h2>水平方向のスライダー</h2>
+	<div id="hSlider" class="slider">
+		<ul>
+			<li><p>[1] This is First.</p></li>
+			<li><p>[2] This is Second.</p></li>
+			<li><p>[3] This is Third.</p></li>
+			<li><p>[4] This is Fourth.</p></li>
+			<li><p>[5] This is Fifth.</p></li>
+		</ul>
+	</div>
+	<input type="button" value="← Back" id="backButton" />
+	<input type="button" value="Next →" id="nextButton" />
+</div>
+
+<div class="demoItem">
+	<h2>垂直方向のスライダー</h2>
+	<div id="vSlider" class="slider">
+		<ul>
+			<li><p>[1] This is First.</p></li>
+			<li><p>[2] This is Second.</p></li>
+			<li><p>[3] This is Third.</p></li>
+			<li><p>[4] This is Fourth.</p></li>
+			<li><p>[5] This is Fifth.</p></li>
+		</ul>
+	</div>
+	<input type="button" value="↑ Up" id="upButton" />
+	<input type="button" value="↓ Down" id="downButton" />
+</div>
+
+<script type="text/javascript">
+
+var hSlider = new Slider().create("#hSlider", 500, 1);
+$("#nextButton").bind( "click",  $.proxy(hSlider.next, hSlider) );
+$("#backButton").bind( "click",  $.proxy(hSlider.prev, hSlider) );
+
+var vSlider = new Slider().create("#vSlider", 1000, 0);
+$("#upButton").bind( "click",  $.proxy(vSlider.next, vSlider) );
+$("#downButton").bind( "click",  $.proxy(vSlider.prev, vSlider) );
+
+</script>
+
+</body>
+</html>
